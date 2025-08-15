@@ -1,0 +1,335 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Black Hole Tool Design System - Elegant Black & White Theme */
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 8%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 8%;
+    --ring: 0 0% 98%;
+
+    --radius: 0.75rem;
+
+    /* Black Hole Specific Colors */
+    --hole-primary: 0 0% 0%;
+    --hole-secondary: 0 0% 5%;
+    --hole-accent: 0 0% 98%;
+    --hole-muted: 0 0% 40%;
+
+    /* Textures and Effects */
+    --texture-dots: radial-gradient(circle at 25% 25%, hsl(0 0% 98% / 0.1) 1px, transparent 1px);
+    --texture-dots-size: 24px;
+    
+    /* Grid Texture */
+    --texture-grid: linear-gradient(hsl(0 0% 98% / 0.05) 1px, transparent 1px),
+                    linear-gradient(90deg, hsl(0 0% 98% / 0.05) 1px, transparent 1px);
+    --texture-grid-size: 30px;
+    
+    /* Diagonal Lines Texture */
+    --texture-diagonal: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      hsl(0 0% 98% / 0.03) 10px,
+      hsl(0 0% 98% / 0.03) 20px
+    );
+    
+    /* Hexagon Pattern */
+    --texture-hexagon: radial-gradient(circle at 50% 50%, hsl(0 0% 98% / 0.05) 2px, transparent 2px);
+    --texture-hexagon-size: 40px;
+    
+    /* Animations */
+    --animation-duration: 20s;
+    --animation-ease: linear;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+}
+
+@layer components {
+  /* Header Styles */
+  .header-glass {
+    @apply bg-background/80 backdrop-blur-lg border-b border-border/50;
+  }
+
+  /* Animated Dot Pattern Background */
+  .dots-background {
+    background-image: var(--texture-dots);
+    background-size: var(--texture-dots-size) var(--texture-dots-size);
+    background-repeat: repeat;
+    animation: dots-move var(--animation-duration) var(--animation-ease) infinite;
+  }
+
+  /* Grid Pattern Background */
+  .grid-background {
+    background-image: var(--texture-grid);
+    background-size: var(--texture-grid-size) var(--texture-grid-size);
+    background-repeat: repeat;
+    animation: grid-move 25s linear infinite;
+  }
+
+  /* Diagonal Pattern Background */
+  .diagonal-background {
+    background-image: var(--texture-diagonal);
+    background-repeat: repeat;
+    animation: diagonal-slide 30s linear infinite;
+  }
+
+  /* Hexagon Pattern Background */
+  .hexagon-background {
+    background-image: var(--texture-hexagon);
+    background-size: var(--texture-hexagon-size) var(--texture-hexagon-size);
+    background-repeat: repeat;
+    animation: hexagon-pulse 15s ease-in-out infinite;
+  }
+
+  /* Hero Section Styling */
+  .hero-section {
+    background: linear-gradient(135deg, hsl(var(--hole-primary)) 0%, hsl(var(--hole-secondary)) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: var(--texture-dots);
+    background-size: var(--texture-dots-size) var(--texture-dots-size);
+    background-repeat: repeat;
+    animation: dots-move var(--animation-duration) var(--animation-ease) infinite;
+    opacity: 0.6;
+  }
+
+  /* Modern Feature Cards */
+  .feature-card {
+    @apply bg-card/90 border border-border/50 rounded-2xl p-8 transition-all duration-500 hover:border-primary/30 hover:bg-card hover:scale-105 hover:shadow-2xl;
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+    padding-right: 3rem; /* Add padding to avoid overlap with circle */
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary)), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .feature-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Circle indicator positioning */
+  .feature-card .circle-indicator {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: hsl(var(--primary) / 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .feature-card:hover .circle-indicator {
+    background: hsl(var(--primary) / 0.2);
+  }
+
+  .feature-card .circle-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: hsl(var(--primary));
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .feature-card:hover .circle-dot {
+    opacity: 1;
+  }
+
+  /* Discord Button */
+  .discord-button {
+    @apply bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-primary/90 hover:scale-105;
+    box-shadow: 0 4px 20px hsl(var(--primary) / 0.3);
+  }
+}
+
+@layer utilities {
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Keyframes for animations */
+  @keyframes dots-move {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: var(--texture-dots-size) var(--texture-dots-size);
+    }
+  }
+
+  @keyframes grid-move {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: var(--texture-grid-size) var(--texture-grid-size);
+    }
+  }
+
+  @keyframes diagonal-slide {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100px 100px;
+    }
+  }
+
+  @keyframes hexagon-pulse {
+    0%, 100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.02);
+    }
+  }
+
+  /* Text glow effect */
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--hole-accent) / 0.5);
+  }
+
+  /* Fade in animation */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+
+  .fade-in-delay-1 {
+    animation-delay: 0.2s;
+  }
+
+  .fade-in-delay-2 {
+    animation-delay: 0.4s;
+  }
+
+  .fade-in-delay-3 {
+    animation-delay: 0.6s;
+  }
+
+  @keyframes fade-in-up {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
